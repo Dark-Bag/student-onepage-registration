@@ -36,7 +36,6 @@ $tr.="<tr>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -111,11 +110,11 @@ $tr.="<tr>
   </div>
 </div>
 
-<!-- <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">User Details</h5>
+        <!-- <h5 class="modal-title" id="editModalLabel">User Details</h5> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -125,18 +124,18 @@ $tr.="<tr>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- Edit Modal -->
-<div id="editModal" class="overlay">
+<!-- <div id="editModal" class="overlay">
     <div class="popup">
     <span class="close" onclick="closePopup()">&times;</span>
     <h2>Update Student Details</h2>
             <form method="post" action="insert.php">
 
-                <div class="form-group studentnumber">
-                    <label for="studentnumber">Student Number</label>
-                    <input type="text" id="studentnumber" name="studentnumber" placeholder="Enter your student">
+                <div class="form-group StdNumber">
+                    <label for="StdNumber">Student Number</label>
+                    <input type="text" id="StdNumber" name="StdNumber" placeholder="Enter your student">
                 </div>
                 <div class="form-group fullname">
                     <label for="fullname">Full Name</label>
@@ -183,7 +182,7 @@ $tr.="<tr>
                 </div>
             </form>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal -->
   <div id="myModal" class="modal">
@@ -272,6 +271,7 @@ $tr.="<tr>
    
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <!-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>

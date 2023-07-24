@@ -35,46 +35,15 @@ $(document).ready(function() {
     }
   });
 
- 
-  $(document).ready(function() {
-    // Function to fetch user details and populate form inputs in the modal
-    function fetchUserDetails(id) {
-      $.ajax({
-        url: 'fetch_user_details.php', // Assuming the PHP code is in a separate file named 'fetch_user_details.php'
-        method: 'POST',
-        data: { id: id },
-        success: function(response) {
-          var userDetails = JSON.parse(response);
-          $('#StdNumber').val(userDetails.stdNumber);
-          $('#fullname').val(userDetails.fullName);
-          $('#email').val(userDetails.email);
-          $('#faculty').val(userDetails.faculty);
-          $('#course').val(userDetails.course);
-          $('#editDob').val(userDetails.dob);
-          $('#gender').val(userDetails.gender);        },
-        error: function() {
-          $('#user-details').html('Error occurred while fetching user details.');
-        }
-      });
-    }
-
-    // Event listener for edit buttons in the table
-    $('.edit-button').click(function() {
-      var id = $(this).data('id');
-      fetchUserDetails(id);
-    });
-  });
-
-
   $(document).ready(function() {
     // Map parent option values to their respective child options
     const childOptions = {
         science: ["DIPLOMA IN AGRICULTURE (ECP)", "DIPLOMA IN BIOTECHNOLOGY", "ND: ANALYTICAL CHEMISTRY (EXTENDED)"],
-        business: ["DIPLOMA IN BUSINESS &INFO ADMINISTRATION", "ND: HOSPITALITY MNGT: ACCOMMODATION"],
-        education: ["DIPLOMA IN GRADE R TEACHING", "B ED HON IN EDUCATIONAL MAN & LEADERSHIP", "B ED IN SENIOR PHASE AND FET TEACHING", "POST GRAD CERT IN EDUCATION: FET "],
-        engineering: ["BACHELOR OF ENG TECH IN CHEMICAL ENG", "BACHELOR OF ENG TECH IN CIVIL ENG", "BACHELOR OF ENG TECH IN COMPUTER ENG"],
-        health: ["BACH OF HEALTH SC IN MED LAB SCI", "BACHELOR OF HEALTH SC IN MED LAB SCIENCE"],
-        design: ["DIPLOMA IN ARCHITECTURAL TECHNOLOGY(ECP)", "ND: ARCHITECTURAL TECHNOLOGY", "ADVANCED DIPLOMA IN FASHION", "DIPLOMA IN FILM PRODUCTION"]
+        business: ["DIPLOMA IN BUSINESS & INFORMATION ADMINISTRATION", "ND: HOSPITALITY MANAGEMENT: ACCOMMODATION"],
+        education: ["DIPLOMA IN GRADE R TEACHING", "B.ED HONORS IN EDUCATIONAL MANAGEMENT & LEADERSHIP", "B.ED IN SENIOR PHASE AND FET TEACHING", "POST GRADUATE CERTIFICATE IN EDUCATION: FET"],
+        engineering: ["BACHELOR OF ENGINEERING TECHNOLOGY IN CHEMICAL ENGINEERING", "BACHELOR OF ENGINEERING TECHNOLOGY IN CIVIL ENGINEERING", "BACHELOR OF ENGINEERING TECHNOLOGY IN COMPUTER ENGINEERING"],
+        health: ["BACHELOR OF HEALTH SCIENCE IN MEDICAL LABORATORY SCIENCE", "BACHELOR OF HEALTH SCIENCE IN MEDICAL LAB SCIENCE"],
+        design: ["DIPLOMA IN ARCHITECTURAL TECHNOLOGY (ECP)", "ND: ARCHITECTURAL TECHNOLOGY", "ADVANCED DIPLOMA IN FASHION", "DIPLOMA IN FILM PRODUCTION"]
     };
 
     // Handle change event of the parent select
@@ -91,11 +60,12 @@ $(document).ready(function() {
 
             // Add the child options to the child select
             options.forEach(function(option) {
-                childSelect.append($("<option>").val(option).text(option));
+                childSelect.append($("<option>", { value: option, text: option }));
             });
         }
     });
 });
+
 
 document.getElementById("search").addEventListener("input", function() {
     var input = this.value.toLowerCase();
@@ -281,7 +251,7 @@ $(document).ready(function() {
   }
 
   function loadFormContent(id) {
-    var modalFormContent = document.getElementById("modalFormContent");
+    var modalFormContent = document.getElementById("editModal");
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -296,3 +266,5 @@ $(document).ready(function() {
     xhr.open("GET", "edit.php", true); // Change "form.html" to the actual path of your form file
     xhr.send();
   }
+
+ 
